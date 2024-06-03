@@ -1,0 +1,72 @@
+--Task 1
+--select w.name
+--from wards as w
+--join departments as d
+--on w.department_id = d.id
+--where d.name like 'Cardiology';
+
+--Task 2
+--select w.name
+--from wards as w
+--join departments as d
+--on w.department_id = d.id
+--where d.name in('Neurology', 'General Surgery');
+
+--Task 3
+--select name, Count(*)
+--from donations
+--join departments 
+--on department_id = departments.id
+--GROUP BY name
+--ORDER by Count(*)
+--limit 1;
+
+--Task 4
+--select d.name, d.surname
+--from doctors as d
+--where d.salary > (select salary from doctors where name = 'John' and surname = 'Doe');
+
+--Task 5
+--select w.name, w.places
+--from wards as w
+--join departments as dp
+--on w.department_id = dp.id
+--where w.places > 
+--(select avg(wr.places) 
+--from wards as wr 
+--join departments as d 
+--on wr.department_id = d.id  
+--where d.name = 'Cardiology');
+
+--Task 6
+--select d.name, d.surname
+--from doctors as d
+--where (d.salary + d.premium_money) > (select sum(salary + 100) from doctors where name = 'John' and surname = 'Doe')
+--and name <> 'John' and surname <> 'Doe';
+
+--Task 7
+--select dp.name
+--from doctors as d
+--join doctorsExaminations as de
+--on de.doctor_id = d.id
+--join wards as w
+--on de.ward_id = w.id
+--join departments as dp
+--on w.department_id = dp.id
+--where d.name = 'Michael' and d.surname = 'Johnson';
+
+--Task 8
+--select sp.name
+--from sponsors as sp
+--join donations as don
+--on sp.id = don.sponsor_id 
+--join departments as dp
+--on don.department_id = dp.id
+--where dp.name != 'Cardiology' and dp.name != 'Neurology'; 
+
+--Task 9
+--select d.surname
+--from doctors as d
+--join doctorsExaminations as de
+--on d.id = de.doctor_id
+--where de.startTime = '12:00' and de.endTime = '15:00';
